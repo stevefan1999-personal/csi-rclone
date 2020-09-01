@@ -20,7 +20,7 @@ spec:
       serviceAccountName: csi-controller-rclone
       containers:
         - name: csi-attacher
-          image: quay.io/k8scsi/csi-attacher:v1.1.1
+          image: k8s.gcr.io/sig-storage/csi-attacher:v3.0.0
           args:
             - "--v=5"
             - "--csi-address=$(ADDRESS)"
@@ -44,7 +44,7 @@ spec:
             - name: socket-dir
               mountPath: /csi
         - name: rclone
-          image: wunderio/csi-rclone:v1.2.6
+          image: stevefan1999/csi-rclone:v1.2.7
           args :
             - "--nodeid=$(NODE_ID)"
             - "--endpoint=$(CSI_ENDPOINT)"
